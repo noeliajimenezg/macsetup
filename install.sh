@@ -76,7 +76,7 @@ CaskGeneralToolList=(
     kdiff3
     keepassxc
     obsidian
-    openvpn-connect
+    openvpn
     postman
     rectangle
     scroll-reverser
@@ -85,6 +85,7 @@ CaskGeneralToolList=(
     visualvm
     whatsapp
     zerotier-one
+    iterm2
 )
 if [ "$General" != "${General#[Yy]}" ] ;then
     echo Yes
@@ -194,34 +195,17 @@ read DevOps
 
 DevOpsToolList=(
     terraform
-    vault
-    consul
-    nomad
-    packer
     terragrunt
-    ansible
     awscli
     aws-sam-cli
-    kompose
-)
-CaskDevOpsToolList=(
-    vagrant
-    vmware-fusion
-    virtualbox
+    colima
     docker
-    vagrant-manager
+    docker-compose
+    docker-Buildx
 )
 if [ "$DevOps" != "${DevOps#[Yy]}" ] ;then
     echo Yes
     brew install ${DevOpsToolList[@]}
-    brew install --cask ${CaskDevOpsToolList[@]}
-
-    ## DOCKER APP
-    wget -P ~/Downloads/ https://github.com/docker/app/releases/download/v0.6.0/docker-app-darwin.tar.gz
-    tar -xvf ~/Downloads/docker-app-darwin.tar.gz -C ~/Downloads/
-    mv ~/Downloads/docker-app-darwin /usr/local/bin/docker-app
-    rm ~/Downloads/docker-app-darwin.tar.gz
-
 
     ## Install AWS CLI
     #pip3 --version
@@ -239,6 +223,12 @@ if [ "$DevOps" != "${DevOps#[Yy]}" ] ;then
 else
     echo No
 fi
+
+## DOCKER APP
+mkdir -p ~/.docker/cli-plugins
+ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+docker compose
+ln -sfn $(brew --prefix)/opt/docker-buildx/bin/docker-buildx ~/.docker/cli-plugins/docker-buildx
 
 
 ############# Productivity Tools #############
@@ -260,6 +250,31 @@ if [ "$Productivity" != "${Productivity#[Yy]}" ] ;then
 else
     echo No
 fi
+
+############# oh-my-zsh #############
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+CaskZshToolList=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-completions
+    zsh-history-substring-search
+    zsh-interactive-cd
+    zsh-navigation-tools
+)
+if [ "$Productivity" != "${Productivity#[Yy]}" ] ;then
+    echo Yes
+    brew install ${CaskZshToolList[@]}
+else
+    echo No
+fi
+
+#Install powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+zsh_theme="powerlevel10k/powerlevel10k"
+sed -i '' "s/robbyrussell/$zsh_theme/g" ~/.zshrc
 
 
 ############# Mac Application #############
