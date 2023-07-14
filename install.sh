@@ -113,6 +113,7 @@ DeveloperUtilitiesList=(
     go
     nvm
     bash-completion
+    maccy
 )
 CaskDeveloperUtilitiesList=(
     cheatsheet
@@ -262,6 +263,7 @@ CaskZshToolList=(
     zsh-history-substring-search
     zsh-interactive-cd
     zsh-navigation-tools
+    starship
 )
 if [ "$Productivity" != "${Productivity#[Yy]}" ] ;then
     echo Yes
@@ -275,7 +277,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 zsh_theme="powerlevel10k/powerlevel10k"
 sed -i '' "s/robbyrussell/$zsh_theme/g" ~/.zshrc
-
+echo "eval "$(starship init zsh)"" >> ~/.zshrc
+cp –R "${volumename}font/Meslo/" /Library/Fonts/  
 
 ############# Mac Application #############
 beginDeploy "############# Mac Application #############"
