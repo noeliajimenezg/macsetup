@@ -40,8 +40,12 @@ volumename="/Volumes/OLD_LAPTOP_DISK/OSPMACBOOK/COPYME/"
 username="njimenez"
 InternalDotFilesList=(
     ssh
+    hammerspoon
 )
+echo "Copying ${InternalDotFilesList[@]}"
 cp –R "${volumename}.${InternalDotFilesList[@]}/" "Users/${username}/.${InternalDotFilesList[@]}" 
+
+
 echo "Copying xbar"
 cp –R "${volumename}xbar/" "/Users/${username}/Library/Application\ Support/xbar"
 
@@ -65,6 +69,22 @@ CaskGeneralToolList=(
     xbar
     bitwarden
     boop
+    fluor
+    hammerspoon
+    hex-fiend
+    hiddenbar
+    kdiff3
+    keepassxc
+    obsidian
+    openvpn-connect
+    postman
+    rectangle
+    scroll-reverser
+    tortoisehg
+    ubersicht
+    visualvm
+    whatsapp
+    zerotier-one
 )
 if [ "$General" != "${General#[Yy]}" ] ;then
     echo Yes
@@ -95,12 +115,6 @@ DeveloperUtilitiesList=(
 )
 CaskDeveloperUtilitiesList=(
     cheatsheet
-    spectacle
-    postman
-    dotnet-sdk
-    wireshark
-    # google-chrome-canary
-    # firefox-developer-edition
 )
 if [ "$DeveloperUtilities" != "${DeveloperUtilities#[Yy]}" ] ;then
     
@@ -142,8 +156,6 @@ DatabaseToolList=(
     kafkacat
 )
 CaskDatabaseToolList=(
-    pgadmin4
-    studio-3t
     dbeaver
 )
 if [ "$Database" != "${Database#[Yy]}" ] ;then
@@ -235,10 +247,8 @@ echo -n "Do you wish to install Productivity Tools (${bold}${green}y${reset}/${b
 read Productivity
 
 CaskProductivityToolList=(
-    slack
-    evernote
+    discord
     the-unarchiver
-    dash
     gpg-suite
     microsoft-teams
     microsoft-office
