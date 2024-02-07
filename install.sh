@@ -150,8 +150,8 @@ if [ "$DeveloperUtilities" != "${DeveloperUtilities#[Yy]}" ] ;then
     curl -s "https://get.sdkman.io" | bash
     echo '
     # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-    export SDKMAN_DIR="/Users/mpatel/.sdkman"
-    [[ -s "/Users/mpatel/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile
+    export SDKMAN_DIR="/Users/njimenez/.sdkman"
+    [[ -s "/Users/njimenez/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"' >> ~/.bash_profile
 else
     echo No
 fi
@@ -249,7 +249,7 @@ read Productivity
 CaskProductivityToolList=(
     discord
     the-unarchiver
-    gpg-suite
+   # gpg-suite
     microsoft-teams
     microsoft-office
     zoomus
@@ -296,10 +296,10 @@ read MacApplication
 
 MacApplicationToolList=(
     409183694 # Keynote
-    409203825 # Numbers
+   # 409203825 # Numbers
     409201541 # Pages
-    497799835 # Xcode
-    1450874784 # Transporter
+   # 497799835 # Xcode
+   # 1450874784 # Transporter
     1274495053 # Microsoft To Do
     1295203466 # Microsoft Remote Desktop 10
     985367838 # Microsoft Outlook
@@ -325,7 +325,7 @@ beginDeploy "############# GLOBAL GIT CONFIG #############"
 sh -c 'curl -s https://raw.githubusercontent.com/maxyermayank/developer-mac-setup/master/.gitignore >> ~/.gitignore'
 git config --global push.default current
 git config --global core.excludesfile ~/.gitignore
-git config --global user.name "<username>"
+git config --global user.name "njimenezotto"
 git config --global user.email <email>
 git config --global color.branch auto
 git config --global color.diff auto
