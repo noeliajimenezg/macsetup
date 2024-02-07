@@ -60,32 +60,41 @@ echo -n "Do you wish to install General Tools (${bold}${green}y${reset}/${bold}$
 read General
 
 CaskGeneralToolList=(
-    google-chrome
-    firefox
-    brave-browser-beta
-    spotify
     avast-security
+    betterdisplay
     betterzip
-    xbar
     bitwarden
     boop
+    brave-browser-beta
+    cheatsheet
+    dbeaver-community
+    firefox
     fluor
+    google-chrome
     hammerspoon
     hex-fiend
     hiddenbar
+    insomnia
+    iterm2
+    jetbrains-toolbox
     kdiff3
     keepassxc
+    maccy
+    multipass
+    notunes
     obsidian
-    openvpn
     postman
     rectangle
     scroll-reverser
-    tortoisehg
+    spotify
+    stats
+    tunnelblick
     ubersicht
+    visual-studio-code
     visualvm
     whatsapp
+    xbar
     zerotier-one
-    iterm2
 )
 if [ "$General" != "${General#[Yy]}" ] ;then
     echo Yes
